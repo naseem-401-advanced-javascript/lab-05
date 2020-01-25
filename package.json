@@ -1,0 +1,29 @@
+{
+  "name": "lab-05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "test-watch": "jest --watchAll --verbose",
+    "lint": "eslint '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naseem-401-advanced-javascript/lab-05.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naseem-401-advanced-javascript/lab-05/issues"
+  },
+  "homepage": "https://github.com/naseem-401-advanced-javascript/lab-05#readme",
+  "dependencies": {
+    "eslint": "^6.8.0",
+    "lint": "^0.7.0",
+    "mongoose": "^5.8.9",
+    "supertest": "^4.0.2",
+    "uuid": "^3.4.0"
+  }
+}
