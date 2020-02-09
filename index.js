@@ -1,48 +1,17 @@
+/* eslint-disable camelcase */
+/* eslint-disable strict */
 'use strict';
 
 const mongoose = require('mongoose');
+const Categories = require('./categories/categories-schema.js');
+const Products = require('./products/products-schema.js');
 
-// Require your model
+const MONGODB_URI = 'mongodb://localhost:27017/first-mongo';
 
-// Mongoose Server URI
-const MONGOOSE_URI = 'mongodb://localhost:27017/class05';
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-// Connect
-mongoose.connect(MONGOOSE_URI, { useUnifiedTopology: true, useNewUrlParser: true });
+const dish = new Categories({ name: 'table' });
+const bottle = new Products({ price: 50, weight: 30, quantity_in_stock: 200 });
 
-// Do some work
-const Categories = require('./models-singular/categories.js');
-const categories = new Categories();
-
-/**
- * @param
- * @returns
- */
-async function doWork() {
-  await categories.delete(9);
-  await categories.create(
-    {
-      _id: '9',
-      name: 'John',
-      description: 'person',
-    },
-  );
-  await categories.update(9,
-    {
-      name: 'Peach',
-    },
-  );
-
-  const fetched = await categories.get(9);
-  console.log(fetched);
-}
-
-doWork().then(() => {
-  // Disconnect
-  mongoose.disconnect();
-  console.log('disconnect');
-}).catch(err => {
-  console.log('Error: ',err);
-  mongoose.disconnect();
-  console.log('disconnect');
-})
+dish.save();
+bottle.save();
